@@ -48,12 +48,13 @@
 // features, so that it doesn't crash old versions of Node.js, so we
 // can successfully print the "We require Node.js 16+" message.
 
-// Check for version
+// Check for version, parseInt searhes node.js field process.version.node, then runs an error catch for versions less than 16 or null
 const nodeVersion = parseInt(process.versions.node);
 if (isNaN(nodeVersion) || nodeVersion < 16) {
 	throw new Error("We require Node.js version 16 or later; you're using " + process.version);
 }
 
+// imports fs.ts and repl.ts files from lib folder
 import {FS, Repl} from '../lib';
 
 /*********************************************************
