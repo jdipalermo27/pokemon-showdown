@@ -63,7 +63,9 @@ import {FS, Repl} from '../lib';
  * and many of our imports require the `Config` global to be set up.
  *********************************************************/
 function setupGlobals() {
+	// sets constant ConfigLoader to the file config-loader.ts
 	const ConfigLoader = require('./config-loader');
+	// 
 	global.Config = ConfigLoader.Config;
 
 	const {Monitor} = require('./monitor');
@@ -87,6 +89,7 @@ function setupGlobals() {
 		});
 	}
 
+	// destructs Dex from dex.ts
 	const {Dex} = require('../sim/dex');
 	global.Dex = Dex;
 	global.toID = Dex.toID;
